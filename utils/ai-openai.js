@@ -4,7 +4,8 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY,
+    baseURL: "https://api.groq.com/openai/v1",
   });
 
 // Call OpenAI API for dream interpretation
