@@ -13,7 +13,7 @@ export async function getDreamInterpretation(dreamText) {
     throw new Error('Server misconfigured: OPENAI_API_KEY is missing');
   }
 
-  const model ='gpt-4o-mini';
+  const model ='openai/gpt-oss-20b';
 
   try {
     const message = await openai.chat.completions.create({
