@@ -25,7 +25,7 @@ dreamForm.addEventListener('submit', async (e) => {
     btnLoading.style.display = 'inline';
 
     try {
-        const response = await fetch(`/api/dreams`, {
+        const response = await fetch('/api/dreams', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,11 +33,14 @@ dreamForm.addEventListener('submit', async (e) => {
             body: JSON.stringify({ dream_text: dream }),
         });
 
+        const data = await response.json();
 
         if (!response.ok) {
             showErrorMessage(data.error || 'Failed to process your dream. Please try again.');
             return;
         }
+
+        const newDream = data;
         
         // Clear form
         dreamText.value = '';
