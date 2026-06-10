@@ -5,7 +5,7 @@ dotenv.config()
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  base_url: "https://api.groq.com/openai/v1"
+    baseURL: "https://api.groq.com/openai/v1",
   });
 
 // Call OpenAI API for dream interpretation
@@ -14,7 +14,7 @@ export async function getDreamInterpretation(dreamText) {
     throw new Error('Server misconfigured: OPENAI_API_KEY is missing');
   }
 
-  const model = "openai/gpt-oss-20b";
+  const model ='openai/gpt-oss-20b';
 
   try {
     const message = await openai.chat.completions.create({
